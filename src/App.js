@@ -5,7 +5,7 @@ import Saludar from './components/saludar';
 function App() {
   return (
    <div>
-     <Saludar quien={"picho"} msj={"hola, como estas mi"}/>
+     <Saludar quien={"picho"} msj={"hola, como estas"}/>
    </div>
   );
 }
