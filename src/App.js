@@ -1,13 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import Saludar from './components/saludar';
+import NavBar from "./components/NavBar";
 
 function App() {
-  return (
-   <div>
-     <Saludar quien={"picho"} msj={"hola, como estas"}/>
-   </div>
-  );
+  return <div>
+    <NavBar />
+    
+
+  </div>;
+
 }
 
-export default App;
+export default App
