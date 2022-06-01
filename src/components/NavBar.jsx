@@ -1,3 +1,5 @@
+import CartWidget from "./CartWidget";
+import ItemListContainer from "./ItemListContainer";
 
 function NavBar() {
     return <div>
@@ -11,9 +13,9 @@ function NavBar() {
             <li> <a href=""> Contacto </a></li>
         </ul></div>
 
+        <CartWidget cantidad= {7}/>
 
     </div>;
-
 }
 
 export default NavBar;
