@@ -10,7 +10,7 @@ function App() {
   return <div>
     <NavBar />
     <ItemListContainer greeting={"Hola, soy un producto del carrito"} />
-    <ItemCount stock={10} initial={1} onAdd />
+    <ItemCount stock={10} initial={1} onAdd={onAdd} />
   </div>;
 
 }
