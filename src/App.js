@@ -4,8 +4,8 @@ import NavBar from "./components/NavBar";
 
 function App() {
 
-  const onAdd = () => {
-    alert('se agrego al carrito')
+  const onAdd = (cantidad) => {
+    alert(`agregaste al carrito ${cantidad} productos `);
   }
   return <div>
     <NavBar />

@@ -12,7 +12,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
 
         <br />
 
-        <button onClick={() => { i <= stk ? onAdd() : alert('ERROR: la cantidad supera al stock disponible') }}>Agregar al Carrito</button>
+        <button onClick={() => { i <= stk ? onAdd(i) : alert('ERROR: la cantidad supera al stock disponible') }}>Agregar al Carrito</button>
 
     </>
     )
