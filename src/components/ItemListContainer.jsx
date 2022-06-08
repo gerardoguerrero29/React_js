@@ -1,9 +1,42 @@
-function ItemListContainer({greeting}) {
-    return<>
+import React, { useEffect, useState } from 'react'
+import ItemList from './ItemList';
 
-    <h1>{greeting}</h1>
+export default function ItemListContainer({ greeting }) {
+
+    const [productos, setProductos] = useState([])
+    const [error, setError] = useState(false)
+
+    useEffect(() => {
+
+        const promiseProductos = new Promise((res, rej) => {
+            setTimeout(() => {
+                res([
+                    { id: "1", title: "Notebook", price: 50000, description: "descripcion", picture: "foto" },
+                    { id: "2", title: "Pendrive", price: 1000, description: "descripcion", picture: "foto" },
+                    { id: "3", title: "Celular", price: 25000, description: "descripcion", picture: "foto" },
+                    { id: "4", title: "Camara de fotos", price: 18000, description: "descripcion", picture: "foto" },
+                    { id: "5", title: "Auriculares", price: 3500, description: "descripcion", picture: "foto" },
+                ]);
+
+            }, 2000);
+        });
+
+        promiseProductos
+            .then((res) => {
+                setProductos(res);
+            })
+            .catch((error) => {
+                setError(error);
+            })
+
+    }, [])
+
+    console.log('productos', productos)
+
+    return <>
+
+    <ItemList productos = {productos}/>
 
     </>
 }
 
-export default ItemListContainer;
