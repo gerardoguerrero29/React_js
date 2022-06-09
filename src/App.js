@@ -9,8 +9,8 @@ function App() {
   }
   return <div>
     <NavBar />
-    <ItemListContainer greeting={"Hola, soy un producto del carrito"} />
     <ItemCount stock={10} initial={1} onAdd={onAdd} />
+    <ItemListContainer greeting={"Hola, soy un producto del carrito"} />
   </div>;
 
 }

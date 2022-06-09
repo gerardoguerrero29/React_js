@@ -3,17 +3,27 @@ import React, { useState } from 'react'
 export default function ItemCount({ stock, initial, onAdd }) {
 
     const [i, setI] = useState(initial);
-    const [stk, setStk] = useState(stock);
+
+    const handleSumClick = () => {
+        i < stock ? setI(i + 1) : setI(stock);
+    }
+
+    const handleSubsClick = () => {
+        i === 0 ? setI(0) : setI(i - 1);
+    }
+
+    const handleAddToCartClick = () => {
+        onAdd(i);
+    }
 
     return (<>
-        <button onClick={() => { i == 0 ? setI(0) : setI(i - 1) }}>-</button>
-        {i}
-        <button onClick={() => { setI(i + 1) }}>+</button>
-
+        <button onClick={handleSubsClick}>-</button>
+        {i}  
+        <button onClick={handleSumClick}>+</button>
         <br />
+        <button onClick={handleAddToCartClick}>Agregar al Carrito</button>
 
-        <button onClick={() => { i <= stk ? onAdd(i) : alert('ERROR: la cantidad supera al stock disponible') }}>Agregar al Carrito</button>
-
+        
     </>
     )
 }
