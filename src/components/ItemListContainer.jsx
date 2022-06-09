@@ -8,7 +8,16 @@ export default function ItemListContainer({ greeting }) {
 
     useEffect(() => {
 
-        const promiseProductos = new Promise((res, rej) => {
+        fetch('https://fakestoreapi.com/products')
+            .then(res => res.json())
+            .then((res) => {
+                setProductos(res)
+            })
+            .catch((error) => {
+                setError(error)
+            })
+
+        /* const promiseProductos = new Promise((res, rej) => {
             setTimeout(() => {
                 res([
                     { id: "1", title: "Notebook", price: 50000, description: "descripcion", picture: "foto" },
@@ -27,15 +36,14 @@ export default function ItemListContainer({ greeting }) {
             })
             .catch((error) => {
                 setError(error);
-            })
+            }) */
 
     }, [])
 
-    console.log('productos', productos)
-
+    console.log(productos)
     return <>
 
-    <ItemList productos = {productos}/>
+        <ItemList productos={productos} />
 
     </>
 }
