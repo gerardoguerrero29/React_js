@@ -7,14 +7,13 @@ export default function ItemListContainer({ greeting }) {
     const [error, setError] = useState(false)
 
     useEffect(() => {
-
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then((res) => {
                 setProductos(res)
             })
-            .catch((error) => {
-                setError(error)
+            .catch((e) => {
+                setError(e)  
             })
 
         /* const promiseProductos = new Promise((res, rej) => {
@@ -40,7 +39,6 @@ export default function ItemListContainer({ greeting }) {
 
     }, [])
 
-    console.log(productos)
     return <>
 
         <ItemList productos={productos} />
