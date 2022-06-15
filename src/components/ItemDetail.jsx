@@ -1,8 +1,13 @@
 
 import React from 'react'
 import { Badge, Figure } from 'react-bootstrap'
+import ItemCount from './ItemCount'
 
 export default function ItemDetail({ productDetail }) {
+
+    const onAdd = (cantidad) => {
+        alert(`agregaste al carrito ${cantidad} productos `);
+    }
 
     return (
         <div>
@@ -17,7 +22,7 @@ export default function ItemDetail({ productDetail }) {
                         src={productDetail.image}
                     />
                     <Figure.Caption>
-                       Categoria: {productDetail.category}   
+                        Categoria: {productDetail.category}
                     </Figure.Caption>
                 </Figure>
 
@@ -26,6 +31,7 @@ export default function ItemDetail({ productDetail }) {
                     <h3>{productDetail.description}</h3>
                     <div>
                         <h2>Precio: <Badge bg="secondary">{productDetail.price}</Badge></h2>
+                        <ItemCount stock={10} initial={1} onAdd={onAdd} />
                     </div>
                 </div>
 

@@ -3,19 +3,16 @@ import ItemDetailedContainer from "./components/ItemDetailedContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 
 function App() {
 
-  const onAdd = (cantidad) => {
-    alert(`agregaste al carrito ${cantidad} productos `);
-  }
-
-  return <div>
+  return <>
     <NavBar />
-    <ItemCount stock={10} initial={1} onAdd={onAdd} />
     <ItemListContainer greeting={"Hola, soy un producto del carrito"} />
-    <ItemDetailedContainer/>
-  </div>;
+    <ItemDetailedContainer />
+  </>
 
 }
 
