@@ -13,8 +13,9 @@ export default function ItemListContainer() {
                 setProductos(res)
             })
             .catch((e) => {
-                setError(e)  
-            })
+                setError(e)
+                console.log(error)
+            }, [])
 
         /* const promiseProductos = new Promise((res, rej) => {
             setTimeout(() => {
@@ -38,7 +39,7 @@ export default function ItemListContainer() {
             }) */
 
     }, [])
-console.log(productos)
+    console.log(productos)
 
     return <>
 
