@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from './ItemList';
 
-export default function ItemListContainer({ greeting }) {
+export default function ItemListContainer() {
 
     const [productos, setProductos] = useState([])
     const [error, setError] = useState(false)
@@ -38,6 +38,7 @@ export default function ItemListContainer({ greeting }) {
             }) */
 
     }, [])
+console.log(productos)
 
     return <>
 

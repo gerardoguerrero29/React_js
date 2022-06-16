@@ -11,7 +11,6 @@ export default function ItemDetail({ productDetail }) {
 
     return (
         <div>
-            <hr /> <h1> Aqui comienza el Item Detail </h1> <br />
             <div className='itemContainer'>
 
                 <Figure>
