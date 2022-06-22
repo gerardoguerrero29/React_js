@@ -9,6 +9,8 @@ export default function ItemDetail({ productDetail }) {
         alert(`agregaste al carrito ${cantidad} productos `);
     }
 
+    console.log("Esto es el product detail", {productDetail})
+
     return (
         <div>
             <div className='itemContainer'>

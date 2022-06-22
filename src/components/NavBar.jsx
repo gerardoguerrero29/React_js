@@ -1,7 +1,7 @@
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 
-function NavBar() {
+function NavBar({pages}) {
     return <div className="flexible" >
 
         <Navbar  expand="lg">
@@ -12,11 +12,10 @@ function NavBar() {
                     <Nav className="me-auto">
                         <Nav.Link href="/home">Inicio</Nav.Link>
                         <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/category/:1">Categoria 1</NavDropdown.Item>
-                            <NavDropdown.Item href="/category/:2">Categoria 2</NavDropdown.Item>
-                            <NavDropdown.Item href="/category/:3">Categoria 3</NavDropdown.Item>
+                            <NavDropdown.Item href="/category/termosuelo">Termosuelo</NavDropdown.Item>
+                            <NavDropdown.Item href="/category/bombaDeCalor">Bomba de Calor</NavDropdown.Item>
+                            <NavDropdown.Item href="/category/energiaSolar">Energia Solar</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="/item/:id">Item</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default function Item({ id, title, price, description, image }) {
-    
+
 
     return (
         <>
-            <Card style={{ width: '15rem' , margin:15}}>
+            <Card style={{ width: '15rem', margin: 15 }}>
                 <Card.Img variant="top" src={image} />
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
@@ -17,7 +18,7 @@ export default function Item({ id, title, price, description, image }) {
                         <br />
                         Id: {id}
                     </Card.Text>
-                    <Button variant="primary">Ver Detalles</Button>
+                    <Link to={"/item/" +id} > <Button variant="primary">Ver Detalles</Button> </Link>
                 </Card.Body>
             </Card>
         </>

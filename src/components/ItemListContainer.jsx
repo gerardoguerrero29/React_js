@@ -1,44 +1,51 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
+import { Mock_Items } from './Mock_Items';
+
 
 export default function ItemListContainer() {
 
     const [productos, setProductos] = useState([])
-    const [error, setError] = useState(false)
+    const { catId } = useParams();
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
+        const getItems = () => {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    res(Mock_Items);
+                    console.log(Mock_Items)
+                }, 2000);
+            });
+        };
+
+        getItems()
             .then((res) => {
-                setProductos(res)
+                if (catId) {
+                    setProductos(res.filter((product) => product.category === catId));
+                } else {
+                    setProductos(res);
+                }
             })
-            .catch((e) => {
-                setError(e)
-                console.log(error)
-            }, [])
+            .catch((err) => {
+                console.log(err);
+            });
 
-        /* const promiseProductos = new Promise((res, rej) => {
-            setTimeout(() => {
-                res([
-                    { id: "1", title: "Notebook", price: 50000, description: "descripcion", picture: "foto" },
-                    { id: "2", title: "Pendrive", price: 1000, description: "descripcion", picture: "foto" },
-                    { id: "3", title: "Celular", price: 25000, description: "descripcion", picture: "foto" },
-                    { id: "4", title: "Camara de fotos", price: 18000, description: "descripcion", picture: "foto" },
-                    { id: "5", title: "Auriculares", price: 3500, description: "descripcion", picture: "foto" },
-                ]);
-
-            }, 2000);
-        });
-
-        promiseProductos
-            .then((res) => {
-                setProductos(res);
-            })
-            .catch((error) => {
-                setError(error);
-            }) */
-
-    }, [])
+        /*         fetch('https://fakestoreapi.com/products')
+                    .then(res => res.json())
+                    .then((res) => {
+        
+                        if (catId) {
+                            setProductos(res.filter((productos)=>productos.category ===catId))
+                        } else {
+                            setProductos(res)
+                        }
+                    })
+                    .catch((e) => {
+                        setError(e)
+                        console.log(error)
+                    }) */
+    }, [catId])
     console.log(productos)
 
     return <>
