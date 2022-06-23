@@ -5,7 +5,7 @@ import { Mock_Items } from './Mock_Items';
 
 export default function ItemDetailedContainer() {
 
-    const [productDetail, setProductDetail] = useState([])
+    const [productDetail, setProductDetail] = useState()
     const { id } = useParams();
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export default function ItemDetailedContainer() {
         getItem()
             .then((res) => {
                 if (id) {
-                    setProductDetail(res.filter((product) => product.id === id));
+                    setProductDetail(res.find((product) => product.id === id));
                 } else {
                     setProductDetail(res);
                 }
@@ -47,7 +47,7 @@ export default function ItemDetailedContainer() {
     console.log(productDetail)
 
     return (
-        <ItemDetail productDetail={productDetail} />
+        productDetail && <ItemDetail productDetail={productDetail} />
 
     )
 }

@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailedContainer from "./components/ItemDetailedContainer";
 import { pages } from "./components/Pages";
+import TestEventos from "./TestEventos";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <NavBar pages={pages} />
     <BrowserRouter>
       <Routes>
+        <Route path="/test" element={<TestEventos />} />
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/category/:catId" element={<ItemListContainer />} />
