@@ -14,7 +14,6 @@ export default function ItemListContainer() {
             return new Promise((res, rej) => {
                 setTimeout(() => {
                     res(Mock_Items);
-                    console.log(Mock_Items)
                 }, 2000);
             });
         };

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import {Button} from 'react-bootstrap';
+import '../App.css'
 
 export default function ItemCount({ stock, initial, onAdd }) {
 
@@ -17,13 +19,14 @@ export default function ItemCount({ stock, initial, onAdd }) {
     }
 
     return (<>
-        <button onClick={handleSubsClick}>-</button>
+    <div className='itemCount'>
+        <Button variant="light" onClick={handleSubsClick}>-</Button>
         {i}  
-        <button onClick={handleSumClick}>+</button>
-        <br />
-        <button onClick={handleAddToCartClick}>Agregar al Carrito</button>
-
+        <Button variant="light" onClick={handleSumClick}>+</Button>
+        <Button variant="success" onClick={handleAddToCartClick}>Agregar al Carrito</Button>
+    </div>
         
     </>
+
     )
 }

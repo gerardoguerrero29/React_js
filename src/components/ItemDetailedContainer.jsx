@@ -14,7 +14,6 @@ export default function ItemDetailedContainer() {
             return new Promise((res, rej) => {
                 setTimeout(() => {
                     res(Mock_Items);
-                    console.log(Mock_Items)
                 }, 2000);
             });
         };
@@ -43,8 +42,6 @@ export default function ItemDetailedContainer() {
              }) */
 
     }, [id])
-
-    console.log(productDetail)
 
     return (
         productDetail && <ItemDetail productDetail={productDetail} />

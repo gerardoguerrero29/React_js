@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailedContainer from "./components/ItemDetailedContainer";
 import { pages } from "./components/Pages";
-import TestEventos from "./TestEventos";
+import TestEventos from "./components/TestEventos";
 
 function App() {
 

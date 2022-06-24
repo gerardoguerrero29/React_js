@@ -4,6 +4,7 @@ export default function TestEventos() {
   function handleClick(e,id) {
     console.log(e)
     alert(`handle click en:` + id);
+    console.log(id)
   }
 
   return (
