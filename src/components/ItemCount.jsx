@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import {Button} from 'react-bootstrap';
 import '../App.css'
 
-export default function ItemCount({ stock, initial, addItem }) {
+
+export default function ItemCount({ stock, initial, addItem,productDetail }) {
+
 
     const [i, setI] = useState(initial);
 
@@ -15,7 +17,7 @@ export default function ItemCount({ stock, initial, addItem }) {
     }
 
     const handleAddToCartClick = () => {
-        addItem(i);
+        addItem(productDetail, i);
     }
 
     return (<>

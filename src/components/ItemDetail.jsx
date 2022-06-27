@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Badge, Figure, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
-import Context from "../context/CartContext";
+import { Context } from "../context/CartContext";
 
 export default function ItemDetail({ productDetail }) {
   
-    const{showItemCount, addItem} = useContext(Context)
+    const {showItemCount , addItem}=useContext(Context)
   
 
     return (
@@ -38,6 +38,7 @@ export default function ItemDetail({ productDetail }) {
                   stock={productDetail.stock}
                   initial={1}
                   addItem={addItem}
+                  productDetail={productDetail}
                 />
               ) : (
                 <Link to={"/cart/"}>
