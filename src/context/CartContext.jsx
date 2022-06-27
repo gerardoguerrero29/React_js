@@ -5,16 +5,33 @@ export const Context = createContext({});
 
 export default function CartContext({ children }) {
   const [Cart, setCart] = useState([]);
+  const [showItemCount, setshowItemCount] = useState(true);
 
-  function addItem({ item, cant }) {}
 
-  function removeItem({ id }) {}
+  function addItem({ producto, cant }) {
+    setCart(Cart.push(producto));
+    
+    alert(`agregaste al carrito ${cant} productos `);
+    setshowItemCount(false);
+  }
 
-  function clear() { setCart([])}
+  function removeItem({ id }) {
+    setCart(Cart.splice(id, 1));
+  }
 
-  function isInCart(id) {}
+  function clear() {
+    setCart([]);
+  }
+
+  function isInCart(id) {
+    let found = Cart.find((producto) => producto.id === id) > -1 ? true : false;
+
+    return found;
+  }
 
   return (
-    <Context.Provider value={{ Cart, setCart, addItem, removeItem, clear, isInCart  }}> {children} </Context.Provider>
+    <Context.Provider  value={{ Cart, setCart, showItemCount, setshowItemCount, addItem, removeItem, clear, isInCart }} >
+      {children}
+    </Context.Provider>
   );
 }
