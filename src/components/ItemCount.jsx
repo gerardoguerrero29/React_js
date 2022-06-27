@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {Button} from 'react-bootstrap';
 import '../App.css'
+import { Context } from '../context/CartContext';
 
+export default function ItemCount({ stock, initial,productDetail }) {
 
-export default function ItemCount({ stock, initial, addItem,productDetail }) {
-
+    const {addItem} = useContext(Context)
 
     const [i, setI] = useState(initial);
 

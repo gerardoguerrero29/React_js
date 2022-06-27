@@ -13,6 +13,7 @@ export default function CartContext({ children }) {
     
     alert(`agregaste al carrito ${cant} productos `);
     setshowItemCount(false);
+    console.log(Cart)
   }
 
   function removeItem({ id }) {
