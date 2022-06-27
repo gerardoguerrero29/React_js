@@ -8,14 +8,11 @@ export default function ItemDetail({ productDetail }) {
 
     const [showItemCount, setshowItemCount] = useState(true)
 
-    const [cantToCart, setcantToCart] = useState(0)
 
     const onAdd = (cantidad) => {
         alert(`agregaste al carrito ${cantidad} productos `);
         setshowItemCount(false);
-        console.log(cantToCart);
-        setcantToCart(parseInt(cantidad));
-        console.log(cantToCart);
+       
     }
 
 
