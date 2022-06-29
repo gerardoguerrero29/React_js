@@ -12,8 +12,8 @@ function App() {
   return (
     <>
       <CartContext>
-        <NavBar pages={pages} />
         <BrowserRouter>
+        <NavBar pages={pages} />
           <Routes>
             <Route path="/test" element={<TestEventos />} />
             <Route path="/" element={<Home />} />

@@ -51,6 +51,12 @@
   width: 3rem;
 }
 
+.carrito h3{
+  border-radius: 20px;
+  background-color: rgb(0,182,112);
+  color: white;
+}
+
 .itemContainer{
   display: flex;
   align-items: flex-start;

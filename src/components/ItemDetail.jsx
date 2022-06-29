@@ -1,13 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Badge, Figure, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import { Context } from "../context/CartContext";
 
 export default function ItemDetail({ productDetail }) {
+    const {addItem} = useContext(Context)
+    const [showItemCount , setshowItemCount]=useState(true)
   
-    const {showItemCount , addItem}=useContext(Context)
-  
+    function onAdd(cant) {
+      setshowItemCount(false)
+      alert(`agregaste al carrito ${cant} productos `);
+      addItem(productDetail, cant)
+    }
 
     return (
     
@@ -37,8 +42,7 @@ export default function ItemDetail({ productDetail }) {
                 <ItemCount
                   stock={productDetail.stock}
                   initial={1}
-                  addItem={addItem}
-                  productDetail={productDetail}
+                  onAdd={onAdd}
                 />
               ) : (
                 <Link to={"/cart/"}>

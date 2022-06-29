@@ -1,11 +1,8 @@
-import React, { useContext, useState } from 'react'
-import {Button} from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Button } from 'react-bootstrap';
 import '../App.css'
-import { Context } from '../context/CartContext';
 
-export default function ItemCount({ stock, initial,productDetail }) {
-
-    const {addItem} = useContext(Context)
+export default function ItemCount({ stock, initial, onAdd }) {
 
     const [i, setI] = useState(initial);
 
@@ -18,17 +15,17 @@ export default function ItemCount({ stock, initial,productDetail }) {
     }
 
     const handleAddToCartClick = () => {
-        addItem(productDetail, i);
+        onAdd(i);
     }
 
     return (<>
-    <div className='itemCount'>
-        <Button variant="light" onClick={handleSubsClick}>-</Button>
-        {i}  
-        <Button variant="light" onClick={handleSumClick}>+</Button>
-        <Button variant="success" onClick={handleAddToCartClick}>Agregar al Carrito</Button>
-    </div>
-        
+        <div className='itemCount'>
+            <Button variant="light" onClick={handleSubsClick}>-</Button>
+            {i}
+            <Button variant="light" onClick={handleSumClick}>+</Button>
+            <Button variant="success" onClick={handleAddToCartClick}>Agregar al Carrito</Button>
+        </div>
+
     </>
 
     )
