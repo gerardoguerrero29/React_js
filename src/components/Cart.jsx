@@ -3,9 +3,13 @@ import { Context } from '../context/CartContext'
 
 export default function Cart() {
 
-    const {cartPrice} = useContext(Context)
+    const { cartPrice, cart } = useContext(Context)
 
-  return (
-    <div>{cartPrice()}</div>
-  )
+    return (<>
+
+        <div>{cartPrice()}</div>
+
+
+    </>
+    )
 }
