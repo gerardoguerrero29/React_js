@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Context } from "../context/CartContext";
 import CartWidget from "./CartWidget";
 
-function NavBar({pages}) {
+function NavBar({}) {
+
+    const {cart} = useContext(Context)
+
     return <div className="flexible" >
 
         <Navbar  expand="lg">
@@ -22,7 +27,7 @@ function NavBar({pages}) {
             </Container>
         </Navbar>
 
-        <CartWidget cantidad={7} />
+        <CartWidget cantidad={cart.length} />
 
     </div>;
 }
