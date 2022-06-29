@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { Context } from "../context/CartContext";
 import CartWidget from "./CartWidget";
 
-function NavBar({}) {
+function NavBar() {
 
-    const {cart} = useContext(Context)
+    const {cartItemCount} = useContext(Context)
 
     return <div className="flexible" >
 
@@ -27,7 +27,7 @@ function NavBar({}) {
             </Container>
         </Navbar>
 
-        <CartWidget cantidad={cart.length} />
+        <CartWidget cantidad={cartItemCount()} />
 
     </div>;
 }

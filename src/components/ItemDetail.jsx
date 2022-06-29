@@ -10,7 +10,6 @@ export default function ItemDetail({ productDetail }) {
   
     function onAdd(cant) {
       setshowItemCount(false)
-      alert(`agregaste al carrito ${cant} productos `);
       addItem(productDetail, cant)
     }
 
