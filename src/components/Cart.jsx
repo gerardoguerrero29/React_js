@@ -10,8 +10,8 @@ export default function Cart() {
     return (<>
         <div>
             {cart.map((cart) => <CartTemplate key={cart.id} id={cart.id} image={cart.image} title={cart.title} price={cart.price} cant={cart.cantidad} />)}
-            <div>
-                <h1>{cartPrice()}</h1>
+            <div style= {{textAlign: `end`, marginRight: `8rem` }}>
+                <h1>{"Total Carrito: $  "+cartPrice()}</h1>
             </div>
         </div>
 
