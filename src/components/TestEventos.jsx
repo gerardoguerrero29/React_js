@@ -9,7 +9,7 @@ export default function TestEventos() {
 
   return (
     <div onClick={(e)=> {handleClick(e,1)}} style={{ border: "1px solid red" }}>
-      TestEventos
+      TestEventos 
     </div>
   );
 }
