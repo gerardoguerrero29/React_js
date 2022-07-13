@@ -8,7 +8,7 @@ export default function CartTemplate({ id, title, image, cant, price }) {
     const { removeItem } = useContext(Context)
 
 
-    return (<>
+    return <>
 
         <div className='cartTemplate'>
             <div className='cartTemplate'>
@@ -16,7 +16,7 @@ export default function CartTemplate({ id, title, image, cant, price }) {
                 <h2> {title}</h2>
             </div>
             <div style={{display: `flex`}} >
-                <Button variant="danger" /* onClick={removeItem(id)} */  style={{width:`3rem` , height:`3rem`, alignSelf:`center`, margin: '1rem'}}> X</Button>
+                <Button variant="danger" onClick={()=>removeItem(id)}   style={{width:`3rem` , height:`3rem`, alignSelf:`center`, margin: '1rem'}}> X</Button>
                 <div>
                     <h3>{"Cantidad:" + cant}</h3>
                     <h3>{"Subtotal: $ " + price * cant}</h3>
@@ -27,5 +27,5 @@ export default function CartTemplate({ id, title, image, cant, price }) {
 
 
     </>
-    )
+    
 }

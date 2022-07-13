@@ -29,8 +29,8 @@ export default function CartContext({ children }) {
 
   }
 
-  function removeItem({ id }) {
-    setCart(cart.splice(id, 1));
+  function removeItem(id) {
+    setCart(cart.filter((x) => x.id !== id));
   }
 
   function clear() {
