@@ -30,20 +30,6 @@ export default function ItemListContainer() {
                 console.log(err);
             });
 
-        /*         fetch('https://fakestoreapi.com/products')
-                    .then(res => res.json())
-                    .then((res) => {
-        
-                        if (catId) {
-                            setProductos(res.filter((productos)=>productos.category ===catId))
-                        } else {
-                            setProductos(res)
-                        }
-                    })
-                    .catch((e) => {
-                        setError(e)
-                        console.log(error)
-                    }) */
     }, [catId])
     console.log(productos)
 
