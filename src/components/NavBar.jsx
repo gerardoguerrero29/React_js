@@ -3,6 +3,7 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Context } from "../context/CartContext";
 import CartWidget from "./CartWidget";
+import Categories from "./Categories";
 
 function NavBar() {
 
@@ -21,9 +22,10 @@ function NavBar() {
                         <Nav className="me-auto">
                             <Nav.Link as={Link} to="/home">Inicio</Nav.Link>
                             <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={Link} to="/category/termosuelo">Termosuelo</NavDropdown.Item>
+                               {/*  <NavDropdown.Item as={Link} to="/category/termosuelo">Termosuelo</NavDropdown.Item>
                                 <NavDropdown.Item as={Link} to="/category/bombaDeCalor">Bomba de Calor</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/category/energiaSolar">Energia Solar</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/category/energiaSolar">Energia Solar</NavDropdown.Item> */}
+                                <Categories/>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

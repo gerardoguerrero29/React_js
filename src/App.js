@@ -1,14 +1,14 @@
-import NavBar from "./components/NavBar";
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import ItemListContainer from "./components/ItemListContainer";
-import ItemDetailedContainer from "./components/ItemDetailedContainer";
-import { pages } from "./components/Pages";
-import TestEventos from "./components/TestEventos";
-import CartContext from "./context/CartContext";
-import Cart from "./components/Cart";
 import { initializeApp } from "firebase/app";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Cart from "./components/Cart";
+import Home from "./components/Home";
+import ItemDetailedContainer from "./components/ItemDetailedContainer";
+import ItemListContainer from "./components/ItemListContainer";
+import NavBar from "./components/NavBar";
+import { pages } from "./components/Pages";
+import Test from "./components/Test";
+import CartContext from "./context/CartContext";
 
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
         <BrowserRouter>
           <NavBar pages={pages} />
           <Routes>
-            <Route path="/test" element={<TestEventos />} />
+            <Route path="/test" element={<Test/>} />
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/category/:catId" element={<ItemListContainer />} />

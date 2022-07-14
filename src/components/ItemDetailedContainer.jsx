@@ -1,50 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import ItemDetail from './ItemDetail'
-import { useParams } from 'react-router-dom';
-import { Mock_Items } from './Mock_Items';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ItemDetail from "./ItemDetail";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export default function ItemDetailedContainer() {
+  const [productDetail, setProductDetail] = useState();
+  const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
 
-    const [productDetail, setProductDetail] = useState()
-    const { id } = useParams();
+  useEffect(() => {
+    const db = getFirestore();
+    const productItem = doc(db, "products", id);
 
-    useEffect(() => {
+    getDoc(productItem)
+      .then((res) => {
+        setProductDetail({ ...res.data(), id: res.id });
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [id]);
 
-        const getItem = () => {
-            return new Promise((res, rej) => {
-                setTimeout(() => {
-                    res(Mock_Items);
-                }, 2000);
-            });
-        };
-
-        getItem()
-            .then((res) => {
-                if (id) {
-                    setProductDetail(res.find((product) => product.id === id));
-                } else {
-                    setProductDetail(res);
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-
-
-
-        /*  fetch('https://fakestoreapi.com/products')
-             .then(res => res.json())
-             .then((res) => {
-                 setProductDetail(res[0])
-             })
-             .catch((e) => {
-                 setError(e)
-             }) */
-
-    }, [id])
-
-    return (
-        productDetail && <ItemDetail productDetail={productDetail} />
-
-    )
+  return (
+    <>
+      <div>{loading && <h3>Cargando...</h3>}</div>
+      {productDetail && <ItemDetail productDetail={productDetail} />}
+    </>
+  );
 }

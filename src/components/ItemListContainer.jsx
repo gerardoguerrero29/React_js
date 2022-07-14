@@ -1,42 +1,58 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import ItemList from './ItemList';
-import { Mock_Items } from './Mock_Items';
-
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ItemList from "./ItemList";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
 export default function ItemListContainer() {
+  const [productos, setProductos] = useState([]);
+  const { catId } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
 
-    const [productos, setProductos] = useState([])
-    const { catId } = useParams();
+  useEffect(() => {
+    const db = getFirestore();
+    const productsCollection = collection(db, "products");
 
-    useEffect(() => {
-        const getItems = () => {
-            return new Promise((res, rej) => {
-                setTimeout(() => {
-                    res(Mock_Items);
-                }, 2000);
-            });
-        };
+    if (catId) {
+      const q = query(productsCollection, where("category", "==", catId));
+      getDocs(q)
+        .then((res) => {
+          setProductos(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        })
+        .catch((error) => {
+          setError(error);
+          console.log(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      getDocs(productsCollection)
+        .then((res) => {
+          setProductos(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        })
+        .catch((error) => {
+          setError(error);
+          console.log(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  }, [catId]);
 
-        getItems()
-            .then((res) => {
-                if (catId) {
-                    setProductos(res.filter((product) => product.category === catId));
-                } else {
-                    setProductos(res);
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+  console.log(productos);
+  return (
+    <>
+      <div>{loading && <h3>Cargando...</h3>}</div>
 
-    }, [catId])
-    console.log(productos)
-
-    return <>
-
-        <ItemList productos={productos} />
-
+      <ItemList productos={productos} />
     </>
+  );
 }
-
