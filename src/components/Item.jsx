@@ -15,8 +15,6 @@ export default function Item({ id, title, price, description, image }) {
                         Descripcion: {description}
                         <br />
                         Precio: {price}
-                        <br />
-                        Id: {id}
                     </Card.Text>
                     <Link to={"/item/" +id} > <Button variant="primary">Ver Detalles</Button> </Link>
                 </Card.Body>

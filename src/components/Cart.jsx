@@ -26,6 +26,7 @@ export default function Cart() {
                 {cart.map((cart) => <CartTemplate key={cart.id} id={cart.id} image={cart.image} title={cart.title} price={cart.price} cant={cart.cantidad} />)}
                 <div style={{ textAlign: `end`, marginRight: `8rem` }}>
                     <h1>{"Total Carrito: $  " + cartPrice()}</h1>
+                    <Link to={"/checkout"}><Button variant="outline-success" style={{ alignSelf: `center`, margin: '1rem' }}> Finalizar Compra</Button></Link>
                 </div>
             </div>
         }

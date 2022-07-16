@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { Image } from "react-bootstrap";
 
 export default function ItemDetailedContainer() {
   const [productDetail, setProductDetail] = useState();
@@ -27,7 +28,7 @@ export default function ItemDetailedContainer() {
 
   return (
     <>
-      <div>{loading && <h3>Cargando...</h3>}</div>
+      <div>{loading && <img src="https://i.gifer.com/ZZ5H.gif" alt="" /> }</div>
       {productDetail && <ItemDetail productDetail={productDetail} />}
     </>
   );
