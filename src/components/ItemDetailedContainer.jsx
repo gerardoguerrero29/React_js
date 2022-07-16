@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
-import { Image } from "react-bootstrap";
+
 
 export default function ItemDetailedContainer() {
   const [productDetail, setProductDetail] = useState();
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
+  const [err, setErr] = useState();
 
   useEffect(() => {
     const db = getFirestore();
@@ -19,7 +19,8 @@ export default function ItemDetailedContainer() {
         setProductDetail({ ...res.data(), id: res.id });
       })
       .catch((error) => {
-        setError(error);
+        setErr(error);
+        console.log(err)
       })
       .finally(() => {
         setLoading(false);
@@ -28,7 +29,7 @@ export default function ItemDetailedContainer() {
 
   return (
     <>
-      <div>{loading && <img src="https://i.gifer.com/ZZ5H.gif" alt="" /> }</div>
+      <div className="loader">{loading && <img src="https://github.com/gerardoguerrero29/tienda-cs_gerardoguerrero/blob/master/src/assets/Spinner-1s-250px.gif?raw=true" alt="Loading" /> }</div>
       {productDetail && <ItemDetail productDetail={productDetail} />}
     </>
   );

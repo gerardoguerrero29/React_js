@@ -116,3 +116,14 @@
 .emptyPage Card{
   background-color: rgb(252, 249, 249);
 }
+
+.loader{
+  display: flex;
+  justify-content: center;
+}
+
+.loader img{
+  margin-top: 100px;
+  width: 200px;
+  height: 200px;
+}

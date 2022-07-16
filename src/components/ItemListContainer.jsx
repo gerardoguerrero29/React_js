@@ -13,7 +13,7 @@ export default function ItemListContainer() {
   const [productos, setProductos] = useState([]);
   const { catId } = useParams();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
+  const [err, setErr] = useState();
 
   useEffect(() => {
     const db = getFirestore();
@@ -26,8 +26,8 @@ export default function ItemListContainer() {
           setProductos(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         })
         .catch((error) => {
-          setError(error);
-          console.log(error);
+          setErr(error);
+          console.log(err);
         })
         .finally(() => {
           setLoading(false);
@@ -38,8 +38,8 @@ export default function ItemListContainer() {
           setProductos(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         })
         .catch((error) => {
-          setError(error);
-          console.log(error);
+          setErr(error);
+          console.log(err);
         })
         .finally(() => {
           setLoading(false);
@@ -50,7 +50,7 @@ export default function ItemListContainer() {
   console.log(productos);
   return (
     <>
-      <div>{loading && <h3>Cargando...</h3>}</div>
+      <div className="loader">{loading && <img src="https://github.com/gerardoguerrero29/tienda-cs_gerardoguerrero/blob/master/src/assets/Spinner-1s-250px.gif?raw=true" alt="Loading" />}</div>
 
       <ItemList productos={productos} />
     </>
