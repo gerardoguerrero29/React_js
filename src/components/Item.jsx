@@ -16,8 +16,8 @@ export default function Item({ id, title, price, description, image }) {
                         <br />
                         Precio: {price}
                     </Card.Text>
-                    <Link to={"/item/" +id} > <Button variant="primary">Ver Detalles</Button> </Link>
                 </Card.Body>
+             <div style={{alignSelf: 'center', margin: '1rem'} }> <Link to={"/item/" +id} > <Button variant="primary">Ver Detalles</Button> </Link> </div>
             </Card>
         </>
     )
