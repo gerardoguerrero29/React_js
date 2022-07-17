@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+TIENDA-CS-GERARDOGUERRERO
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+The bootstrap library was added to enhance visual styles. 
+
+### Deployment
+
+This project has been deployed at the following URL: https://tienda-cs-gerardoguerrero.web.app/
+
 
 ## Available Scripts
 
@@ -26,8 +33,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
@@ -61,9 +66,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify
 
