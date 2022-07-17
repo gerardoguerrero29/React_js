@@ -27,21 +27,21 @@ export default function ItemDetail({ productDetail }) {
         </Figure>
 
         <div className="itemDetails">
-          <h1>{productDetail.title}</h1>
-          <h3>{productDetail.description}</h3>
+          <h3>{productDetail.title}</h3>
+          <p>{productDetail.description}</p>
           <div>
-            <h2>
+            <h5>
               Stock: <Badge bg="secondary">{productDetail.stock}</Badge>
-            </h2>
-            <h2>
+            </h5>
+            <h5>
               Precio: <Badge bg="primary">{productDetail.price}</Badge>
-            </h2>
+            </h5>
 
             {showItemCount ? (
               <ItemCount stock={productDetail.stock} initial={1} onAdd={onAdd}/>
             ) :
              (<>
-              <Link to={"/home/"}><Button variant="primary">Continuar Comprando</Button></Link>
+              <Link to={"/home/"}><Button variant="primary" style={{marginRight:'5px'}}>Continuar Comprando</Button></Link>
               <Link to={"/cart/"}><Button variant="success">Ir al Carrito</Button></Link>
               </>
             )}
